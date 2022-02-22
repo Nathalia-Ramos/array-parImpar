@@ -8,9 +8,9 @@
  *  Versão: 1.0
  ***********************************/
     
- $resultado = numerosParesImpares(10, 20);
+ $resultado = numerosParesImpares(5,15);
  echo("<pre>");
- var_dump($resultado);
+ var_dump($resultado); //serve para testar o código sem precisar fazer o front
  echo("</pre>");
  //Função para separar uma sequencia de numeros pares
  function numerosPares ($numeroInicial, $numeroFinal) {
@@ -63,24 +63,14 @@ function numerosParesImpares ($numeroInicial, $numeroFinal) {
     $pares = array();
     $impares = array();
     $paresImpares = array();
-    $contImpar = (int) 0;
-    $contPar = (int) 0;
     
-    //Repetição para validar uma sequencia de pares e imapares
-    while($numInicial <= $numFinal) {
+    //Chamada das funções que separam numeros pares e impares, ou seja,
+        //não precisou fazer os calculos de novo, pois na outras funções
+        //ja tem os cálculos
+    $pares = numerosPares($numInicial, $numFinal);
+    $impares = numerosImpares($numInicial, $numFinal);
+  
 
-        //Verifica se o numero é par (==0)
-        if ($numInicial %2 ==  0) {
-            $pares [$contPar] = $numInicial;
-            $contPar++;
-
-         //Monta a lista de numeros impares (caso !=0)
-        }else {
-            $impares [$contImpar] = $numInicial;
-            $contImpar++;
-        }
-            $numInicial++;
-    }
     //Criamos um array para armazenar os dois arrays individuais (pares e impare)
     //Criamos uma chave dentro do array chamada "Pares" para identificar a lista dos pares
         //e "Impares" para identificar a lista do impares
@@ -92,5 +82,8 @@ function numerosParesImpares ($numeroInicial, $numeroFinal) {
     return $paresImpares;
 }
 
-
 ?>
+
+
+
+
